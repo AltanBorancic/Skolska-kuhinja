@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styleMeni.css">
+  <title>Školska online kuhinja</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Školska online kuhinja</h1>
+    <table class="menu">
+      <thead>
+        <tr>
+          <th>Naziv</th>
+          <th>Cijena</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Hamburger</td>
+          <td>5.00KM</td>
+          <td><button class="btn btn-sm btn-primary add-to-cart">Dodaj u korpu</button></td>
+        </tr>
+        <tr>
+          <td>Pizza</td>
+          <td>8.00KM</td>
+          <td><button class="btn btn-sm btn-primary add-to-cart">Dodaj u korpu</button></td>
+        </tr>
+        <tr>
+          <td>Sendvič</td>
+          <td>4.50KM</td>
+          <td><button class="btn btn-sm btn-primary add-to-cart">Dodaj u korpu</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="cart">
+      <h2>Korpa</h2>
+      <table class="cart-items">
+        <thead>
+          <tr>
+            <th>Naziv</th>
+            <th>Cijena</th>
+            <th>Količina</th>
+            <th>Ukloni</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items-body">
+        </tbody>
+      </table>
+      <div class="cart-total">
+        <span class="total-label">Ukupno:</span>
+        <span class="total-price">0.00KM</span>
+      </div>
+      <form id="order-form" action="/order" method="POST">
+        <div class="form-group">
+          <label for="razred">Razred:</label>
+          <input type="text" class="form-control" id="razred" name="razred" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-order">Naruči</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="scriptHome.js"></script>
+  <script src="narudzbaScript.js"></script>
+</body>
+
+</html>

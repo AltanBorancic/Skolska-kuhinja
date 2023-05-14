@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" type="text/css" href="styleAdmin.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+    <div id="popup" class="popup">
+    </div>
+
+  <div class="container">
+    <h1>Admin Panel</h1>
+    <h2>Registracija razreda</h2>
+    <form action="/admin/razredi" method="POST">
+      <div class="form-group">
+        <label for="nazivRazreda">Naziv razreda:</label>
+        <input placeholder="9-1" type="text" id="nazivRazreda" name="nazivRazreda" required>
+      </div>
+      <div class="form-group">
+        <label for="lozinka">Lozinka:</label>
+        <input type="password" id="lozinka" name="lozinka" required>
+      </div>
+      <button type="submit" class="buttonSubmit">Registruj razred</button>
+    </form>
+    <div class="Content">
+      <h2>Lista Razreda:</h2>
+    </div>
+    <form action="/odjaviSe" method="POST">
+      <button type="submit" class="buttonLogout">Odjava</button>
+    </form>
+  </div>
+<script src="scriptAdmin.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #00171F;
+    background-size: 2010px;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 596px;
+    /* padding: 3px; */
+    font-size: 66px;
+    height: 42px;
+    border: none;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #003459;
+    color: white;
+    font-size: 23px;
+  }
+  
+  .buttonSubmit {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007EA7;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .buttonLogout {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dc143c;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .Content {
+    margin-top: 20px;
+  }
+  
+  .boxa {
+    padding: 12px;
+    margin-bottom: 10px;
+    background-color: #106e8d;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .boxa p {
+    margin: 0;
+    color: white;
+    font-size: 18px;
+  }
+ .boxa button {
+    margin: 0;
+    color: white;
+    background-color: #00171F;
+    border: none;
+    height: 50px;
+    width: 172px;
+    border-radius: 4px;
+    font-size: 18px;
+    padding-top: 4px;
+    margin: 3px;
+    padding-bottom: 2px;
+    transition: 0.2s;
+ } 
+ .boxa button:hover {
+    opacity: 0.7;
+ }
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+  
+  .buttonLogout {
+    margin-top: 20px;
+    transition: 0.2s;
+  }
+  
+  .buttonSubmit:hover,
+  .buttonLogout:hover {
+    background-color: #003366;
+  }
+  
+  .buttonSubmit:active,
+  .buttonLogout:active {
+    background-color: #003366;
+  }
+
+  /* Dodatni stil za dropdown */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    transition: 0.2s;
+  }
+
+  .options-icon {
+    cursor: pointer;
+  }
+
+  .dropdown-content {
+    display: none;
+    border-radius: 5px;
+    position: absolute;
+    background-color: #003459;
+    min-width: 160px;
+    padding: 12px;
+    z-index: 1;
+    /* opacity: 0; */
+    transition: 0.3s;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+    /* opacity: 1; */
+  }
+  .blockajHover {
+    pointer-events: none;
+  }
+
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: black;
+  }
+  
+  .dodajPopupuBG {
+      background-color: rgba(255, 255, 255, 0.144);
+  }
+  .popup-content .inputSifraNova {
+      width: 294px;
+      /* padding: 3px; */
+      font-size: 66px;
+      height: 42px;
+      border: none;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      background-color: #003459;
+      color: white;
+      font-size: 23px;
+    }
+    .buttonPromjene {
+      border: none;
+      border-radius: 5px;
+      width: 112px;
+      height: 48px;
+      text-align: center;
+      align-items: center;
+      padding: 11px;
+      margin: 17px;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      /* font-weight: bold; */
+      background-color: #007EA7;
+    }
+    ::-ms-reveal {
+    filter: invert(100%);
+  }
+    .buttonPromjene:hover {
+      opacity: 0.7;
+    }
+  .popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: #00171F;
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .promjenasifreNaslov {
+    text-align: center;
+  }

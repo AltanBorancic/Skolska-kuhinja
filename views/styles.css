@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #5f5f5e;
+    color: white;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #a5a5c3;
+    color: #252936;
+    font-size: 16px;
+  }
+  
+  .buttonSubmit {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6495ed;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .buttonLogout {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dc143c;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .Content {
+    margin-top: 20px;
+  }
+  
+  .boxa {
+    padding: 12px;
+    margin-bottom: 10px;
+    background-color: #252936;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .boxa p {
+    margin: 0;
+    color: white;
+    font-size: 18px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+  
+  .buttonLogout {
+    margin-top: 20px;
+  }
+  
+  .buttonSubmit:hover,
+  .buttonLogout:hover {
+    background-color: #4169e1;
+  }
+  
+  .buttonSubmit:active,
+  .buttonLogout:active {
+    background-color: #003366;
+  }
+  
+  /* Dodatni stil za responsive dizajn */
+  @media screen and (max-width: 480px) {
+    .container {
+      padding: 10px;
+    }
+  
+    input[type="text"],
+    input[type="password"] {
+      font-size: 14px;
+    }
+  
+    .buttonSubmit,
+    .buttonLogout {
+      font-size: 14px;
+    }
+  
+    .boxa p {
+      font-size: 16px;
+    }
+  }
