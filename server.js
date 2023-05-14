@@ -188,7 +188,7 @@ app.post('/order', requireAuthentication2, (req, res) => {
   
       sendLiveOrder(order);
   
-      res.status(200).send('Narudzbu izvrsio, ' + req.session.username);
+      res.status(200).send('Narudzbu izvrsio korisnik, ' + req.session.username);
     });
   });
   
