@@ -45,12 +45,49 @@ function requireAuthentication2(req, res, next) {
       res.redirect('/');
     }
 }
+function provjeriSesijuKuhinja(req, res, next) {
+  if (req.session.authenticatedKuhinja) {
+    next();
+  } else {
+    res.redirect('/loginKuhinja')
+  }
+}
 app.get('/', (req, res) => {
-    res.render('home');
+  res.render('home');
 });
 app.get('/dashboard', (req, res) => {
-    res.render('dashboard');
+  res.render('loginKuhinja')
+  // res.render('dashboard');
+});
+
+app.get('/loginKuhinja', provjeriSesijuKuhinja, (req, res) => {
+  res.render('dashboard')
+})
+
+app.post('/loginKuhinja', (req, res) => {
+  const { username, password } = req.body;
+
+
+  db.query('SELECT * FROM osoblje WHERE username = ?', [username], (err, results) => {
+    if (err) {
+      console.error('Error retrieving user from database: ', err);
+      return res.redirect('/dashboard');
+    }
+
+    if (results.length === 0) {
+      return res.redirect('/dashboard');
+    }
+
+    const user = results[0];
+
+    if (bcrypt.compareSync(password, user.password)) {
+      req.session.authenticatedKuhinja = true;
+      return res.redirect('/loginKuhinja');
+    }
+
+    res.redirect('/dashboard');
   });
+});
 
 app.get('/meni', requireAuthentication2, (req, res) => {
     res.render('meni');
@@ -115,6 +152,11 @@ app.post("/odjaviSe", (req, res) => {
     req.session.authenticated = false;
     return res.redirect('/login');
 });
+
+app.get("/odjavaKuhinja", provjeriSesijuKuhinja, (req, res) => {
+  req.session.authenticatedKuhinja = false
+  return res.redirect('/dashboard');
+})
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
