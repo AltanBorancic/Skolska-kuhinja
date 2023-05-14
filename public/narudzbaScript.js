@@ -45,53 +45,53 @@ function sendOrderToServer(order) {
     return `${date}, ${time}`;
   }
   
-  orderForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-  
-    // Provjera da li je korpa prazna
-    if (cart.length === 0) {
+orderForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  // Provjera da li je korpa prazna
+  if (cart.length === 0) {
+    Swal.fire({
+      title: 'Greška!',
+      text: 'Vaša korpa je prazna. Dodajte stavke prije nego što pošaljete narudžbu.',
+      icon: 'error',
+      confirmButtonText: 'OK'
+    });
+    return;
+  }
+
+  const razredInput = document.querySelector('#razred');
+  const razred = razredInput.value;
+
+  const order = {
+    cart: cart,
+    total: calculateTotal(),
+    razred: razred,
+    vreme_narudzbe: getCurrentDateTime()
+  };
+
+  sendOrderToServer(order)
+    .then((response) => {
+      Swal.fire({
+        title: 'Narudžba uspješno poslana!',
+        text: response,
+        icon: 'success',
+        confirmButtonText: 'OK'
+      }).then(() => {
+        // Obrisi korpu
+        orderForm.reset();
+        cart = [];
+        renderCart();
+      });
+    })
+    .catch((error) => {
+      console.error('Greška prilikom slanja narudžbe:', error);
       Swal.fire({
         title: 'Greška!',
-        text: 'Vaša korpa je prazna. Dodajte stavke prije nego što pošaljete narudžbu.',
+        text: 'Došlo je do greške prilikom slanja narudžbe.',
         icon: 'error',
         confirmButtonText: 'OK'
       });
-      return;
-    }
-  
-    const razredInput = document.querySelector('#razred');
-    const razred = razredInput.value;
-  
-    const order = {
-      cart: cart,
-      total: calculateTotal(),
-      razred: razred,
-      vreme_narudzbe: getCurrentDateTime()
-    };
-  
-    sendOrderToServer(order)
-      .then((response) => {
-        Swal.fire({
-          title: 'Narudžba uspješno poslana!',
-          text: response,
-          icon: 'success',
-          confirmButtonText: 'OK'
-        }).then(() => {
-          // Obrisi korpu
-          orderForm.reset();
-          cart = [];
-          renderCart();
-        });
-      })
-      .catch((error) => {
-        console.error('Greška prilikom slanja narudžbe:', error);
-        Swal.fire({
-          title: 'Greška!',
-          text: 'Došlo je do greške prilikom slanja narudžbe.',
-          icon: 'error',
-          confirmButtonText: 'OK'
-        });
-      });
-  });
-  
+    });
+});
+
   

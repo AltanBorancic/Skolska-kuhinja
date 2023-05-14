@@ -15,12 +15,6 @@ socket.onmessage = (event) => {
   const vrijemeNarudzbe = document.createElement('p');
   vrijemeNarudzbe.innerHTML = `<strong>Vrijeme:</strong> ${order.vreme_narudzbe}`;
 
-  const otvoriNarudzbuButton = document.createElement('button');
-  otvoriNarudzbuButton.textContent = 'Otvori narudžbu';
-  otvoriNarudzbuButton.addEventListener('click', () => {
-    prikaziDetaljeNarudzbe(order);
-  });
-
   const oznaciKaoZavrsenoButton = document.createElement('button');
   oznaciKaoZavrsenoButton.textContent = 'Označi kao završeno';
   oznaciKaoZavrsenoButton.className = 'oznaci-kao-zavrseno-button';
@@ -31,17 +25,14 @@ socket.onmessage = (event) => {
   orderBox.appendChild(orderContent);
   orderBox.appendChild(ukupanIznos);
   orderBox.appendChild(vrijemeNarudzbe);
-  orderBox.appendChild(otvoriNarudzbuButton);
   orderBox.appendChild(oznaciKaoZavrsenoButton);
 
   ordersContainer.appendChild(orderBox);
 
-  prikaziDetaljeNarudzbe(order);
+  prikaziDetaljeNarudzbe(order, orderBox);
 };
 
 socket.onopen = () => {
-  const otvoriNarudzbuButton = document.createElement('button');
-  otvoriNarudzbuButton.textContent = 'Otvori narudžbu';
   console.log('WebSocket veza uspostavljena');
 };
 
@@ -49,12 +40,7 @@ socket.onclose = () => {
   console.log('WebSocket veza zatvorena');
 };
 
-function prikaziDetaljeNarudzbe(narudzba) {
-  const postojeceDetaljiNarudzbe = document.querySelectorAll('.detalji-narudzbe-container');
-  postojeceDetaljiNarudzbe.forEach((element) => {
-    element.remove();
-  });
-
+function prikaziDetaljeNarudzbe(narudzba, orderBox) {
   const detaljiNarudzbeContainer = document.createElement('div');
   detaljiNarudzbeContainer.className = 'detalji-narudzbe-container';
 
@@ -75,5 +61,5 @@ function prikaziDetaljeNarudzbe(narudzba) {
   detaljiNarudzbeContainer.appendChild(listaHrane);
   detaljiNarudzbeContainer.appendChild(posiljalac);
 
-  ordersContainer.appendChild(detaljiNarudzbeContainer);
+  orderBox.appendChild(detaljiNarudzbeContainer);
 }
