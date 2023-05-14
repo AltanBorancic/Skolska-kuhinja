@@ -1,2 +1,2 @@
-cd C:\Users\PC\Desktop\ae
+cd C:\Users\PC\Desktop\skolska-kuhinja
 node server.js
