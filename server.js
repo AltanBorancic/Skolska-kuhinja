@@ -153,6 +153,11 @@ app.post("/odjaviSe", (req, res) => {
     return res.redirect('/login');
 });
 
+
+app.get("/sveNarudzbe", provjeriSesijuKuhinja, (req, res) => {
+  res.render('sveNarudzbe');
+})
+
 app.get("/odjavaKuhinja", provjeriSesijuKuhinja, (req, res) => {
   req.session.authenticatedKuhinja = false
   return res.redirect('/dashboard');
@@ -227,7 +232,7 @@ app.post('/order', requireAuthentication2, (req, res) => {
         return;
       }
       console.log('Narudžba spremljena.');
-  
+      
       sendLiveOrder(order);
   
       res.status(200).send('Narudzbu izvrsio korisnik, ' + req.session.username);
