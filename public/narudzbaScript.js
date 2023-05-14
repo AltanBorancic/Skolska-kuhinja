@@ -1,4 +1,4 @@
-// Slanje narudžbe na server koristeći Fetch API
+
 function sendOrderToServer(order) {
     return fetch('/order', {
       method: 'POST',
@@ -15,7 +15,6 @@ function sendOrderToServer(order) {
     });
   }
   
-  // Dohvaćanje trenutnog datuma i vremena
   function getCurrentDateTime() {
     const now = new Date();
     const date = now.toLocaleDateString();
@@ -23,7 +22,6 @@ function sendOrderToServer(order) {
     return `${date}, ${time}`;
   }
   
-  // Slanje narudžbe
   orderForm.addEventListener('submit', (e) => {
     e.preventDefault();
   
@@ -37,19 +35,15 @@ function sendOrderToServer(order) {
       vreme_narudzbe: getCurrentDateTime()
     };
   
-    // Slanje narudžbe na server
     sendOrderToServer(order)
       .then((response) => {
         console.log(response);
-        // Ovdje možete dodati logiku za prikazivanje potvrde narudžbe korisniku
-        // i ažuriranje UI-a (praznjenje košarice, prikazivanje poruke itd.).
       })
       .catch((error) => {
         console.error('Greška prilikom slanja narudžbe:', error);
-        // Ovdje možete dodati logiku za prikazivanje greške korisniku.
       });
   
-    // Resetiranje forme
+    // obrisi korpu
     orderForm.reset();
     cart = [];
     renderCart();

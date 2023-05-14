@@ -1,21 +1,18 @@
-// Dohvaćanje elemenata iz DOM-a
+
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 const cartItemsContainer = document.querySelector('.cart-items');
 const totalLabel = document.querySelector('.total-label');
 const totalPrice = document.querySelector('.total-price');
 const orderForm = document.querySelector('#order-form');
 
-// Inicijalizacija prazne korpe
 let cart = [];
 
-// Dodavanje događaja klikanja na gumbe "Dodaj u korpu"
 addToCartButtons.forEach((button, index) => {
   button.addEventListener('click', () => {
     addToCart(index);
   });
 });
 
-// Dodavanje hrane u korpu
 function addToCart(index) {
   const selectedItem = {
     name: menuItems[index].name,
@@ -34,17 +31,14 @@ function addToCart(index) {
   renderCart();
 }
 
-// Uklanjanje hrane iz korpe
 function removeFromCart(index) {
   cart.splice(index, 1);
   renderCart();
 }
-// Izračunavanje ukupne cijene narudžbe
 function calculateTotal() {
   return cart.reduce((total, item) => total + item.price * item.quantity, 0);
 }
 
-// Ažuriranje prikaza korpe
 function renderCart() {
   cartItemsContainer.innerHTML = '';
 
@@ -71,13 +65,10 @@ function renderCart() {
     totalPrice.style.display = 'none';
   }
 }
-
-// Podaci o hrani
 const menuItems = [
   { name: 'Hamburger', price: 5.00 },
   { name: 'Pizza', price: 8.00 },
   { name: 'Sendvič', price: 4.50 }
 ];
 
-// Prikaz korpe pri učitavanju stranice
 renderCart();

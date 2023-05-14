@@ -36,7 +36,6 @@ socket.onmessage = (event) => {
 
   ordersContainer.appendChild(orderBox);
 
-  // Automatsko otvaranje detalja narudžbe
   prikaziDetaljeNarudzbe(order);
 };
 
@@ -51,7 +50,6 @@ socket.onclose = () => {
 };
 
 function prikaziDetaljeNarudzbe(narudzba) {
-  // Obriši postojeće detalje narudžbe prije prikazivanja novih
   const postojeceDetaljiNarudzbe = document.querySelectorAll('.detalji-narudzbe-container');
   postojeceDetaljiNarudzbe.forEach((element) => {
     element.remove();
