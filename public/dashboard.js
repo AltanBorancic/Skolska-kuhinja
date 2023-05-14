@@ -45,7 +45,7 @@ function prikaziDetaljeNarudzbe(narudzba, orderBox) {
   detaljiNarudzbeContainer.className = 'detalji-narudzbe-container';
 
   const naslovNarudzbe = document.createElement('h2');
-  naslovNarudzbe.textContent = `ID narudžbe: ${narudzba.id}`;
+  naslovNarudzbe.textContent = `Detalji narudzbe:`;
 
   const listaHrane = document.createElement('ul');
   narudzba.cart.forEach((stavka) => {
@@ -54,7 +54,7 @@ function prikaziDetaljeNarudzbe(narudzba, orderBox) {
     listaHrane.appendChild(stavkaHrane);
   });
 
-  const posiljalac = document.createElement('p');
+  const posiljalac = document.createElement('a');
   posiljalac.innerHTML = `<strong>Razred:</strong> ${narudzba.razred}`;
 
   detaljiNarudzbeContainer.appendChild(naslovNarudzbe);

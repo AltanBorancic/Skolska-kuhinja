@@ -17,7 +17,7 @@ h1 {
 }
 
 .order-box {
-  background-color: #2EC4B6;
+  background-color: #222;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -27,7 +27,7 @@ h1 {
   margin: 0;
   font-family: monospace;
   font-size: 17px;
-  color: #000;
+  color: #fff;
 }
 
 .order-box strong {
@@ -45,19 +45,26 @@ h1 {
 }
 
 .oznaci-kao-zavrseno-button {
-  border: none;
-  border-radius: 7px;
-  width: 191px;
-  /* margin-left: 428px; */
-  /* left: 11px; */
+  display: block;
+  margin: 0 auto;
+  width: 200px;
   height: 48px;
-  margin: 5px;
-  margin-left: 90px;
-  background-color: #d1a514;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  background-color: #d88315;
   color: white;
   font-weight: bold;
   cursor: pointer;
+  transition: 0.2s;
 }
+
+@media (max-width: 600px) {
+  .oznaci-kao-zavrseno-button {
+    width: 100%;
+  }
+}
+
 
 ul.food-list {
   list-style-type: none;
@@ -125,11 +132,14 @@ button.mark-as-complete-button:hover {
   background-color: #d32f2f;
 }
 .detalji-narudzbe-container {
-  background-color: #CBF3F0;
+  background-color: #bfbfbf;
   padding: 10px;
   margin-top: 10px;
+  color: black;
 }
-
+.oznaci-kao-zavrseno-button:hover {
+  opacity: 0.7;
+}
 .dashboard {
   color: #fff;
   border-radius: 13px;
