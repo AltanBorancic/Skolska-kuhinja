@@ -29,6 +29,6 @@ Ovaj je projekta "Školska Kuhinja" za JU OŠ "Aneks" koji ima za cilj razvoj we
 
 ## Doprinosi
 
-Ako želite doprinijeti razvoju projekta, slobodno napravite fork (`git checkout -b ime_grane`) i nakon što završite svoje promijene, pošaljite pull request.
+Ako želite doprinijeti razvoju projekta, slobodno napravite fork i nakon što završite svoje promijene, pošaljite pull request.
 
 
