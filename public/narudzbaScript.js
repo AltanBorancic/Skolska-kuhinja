@@ -48,6 +48,17 @@ function sendOrderToServer(order) {
   orderForm.addEventListener('submit', (e) => {
     e.preventDefault();
   
+    // Provjera da li je korpa prazna
+    if (cart.length === 0) {
+      Swal.fire({
+        title: 'Greška!',
+        text: 'Vaša korpa je prazna. Dodajte stavke prije nego što pošaljete narudžbu.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+      return;
+    }
+  
     const razredInput = document.querySelector('#razred');
     const razred = razredInput.value;
   
@@ -60,15 +71,27 @@ function sendOrderToServer(order) {
   
     sendOrderToServer(order)
       .then((response) => {
-        console.log(response);
+        Swal.fire({
+          title: 'Narudžba uspješno poslana!',
+          text: response,
+          icon: 'success',
+          confirmButtonText: 'OK'
+        }).then(() => {
+          // Obrisi korpu
+          orderForm.reset();
+          cart = [];
+          renderCart();
+        });
       })
       .catch((error) => {
         console.error('Greška prilikom slanja narudžbe:', error);
+        Swal.fire({
+          title: 'Greška!',
+          text: 'Došlo je do greške prilikom slanja narudžbe.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
       });
-  
-    // obrisi korpu
-    orderForm.reset();
-    cart = [];
-    renderCart();
   });
+  
   
