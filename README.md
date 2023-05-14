@@ -15,9 +15,9 @@ Ovaj je projekta "Školska Kuhinja" za JU OŠ "Aneks" koji ima za cilj razvoj we
 
 ## Instalacija
 
-1. Klonirajte ovaj repozitorijum na svoj računar koristeći `git clone`.
-2. Uđite u direktorijum projekta: `cd Skolska-kuhinja`.
-3. Instalirajte neophodne zavisnosti pokretanjem komande `npm install`.
+1. Preuzmite ovaj repo.
+2. Uđite u repository projekta: `cd Skolska-kuhinja`.
+3. Instalirajte neophodne module korištenjem komande `npm install`.
 4. Konfigurišite bazu podataka i ostale postavke u fajlu `server.js`.
 5. Pokrenite aplikaciju: `node server.js`.
 
