@@ -1,5 +1,5 @@
 const ordersContainer = document.getElementById('orders-container');
-const socket = new WebSocket('ws://192.168.1.102:3000');
+const socket = new WebSocket('ws://d085-77-77-223-71.ngrok-free.app');
 
 socket.onmessage = (event) => {
   const order = JSON.parse(event.data);

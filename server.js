@@ -23,7 +23,7 @@ db.connect((err) => {
   console.log('Connected to the database');
 });
 app.use(session({
-    secret: 'my-secret-key',
+    secret: 'ahsglajsodhoghalsnvn239842734y6njdlkjvh%ljsdkj2',
     resave: false,
     saveUninitialized: false
   }));
