@@ -1,19 +1,42 @@
-
 function sendOrderToServer(order) {
-    return fetch('/order', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(order)
-    })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Greška prilikom slanja narudžbe.');
-      }
-      return response.text();
+  return fetch('/order', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(order)
+  })
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error('Greška prilikom slanja narudžbe.');
+    }
+    return response.text();
+  })
+  .then((responseText) => {
+    Swal.fire({
+      title: 'Narudžba uspješno poslana!',
+      text: responseText,
+      icon: 'success',
+      confirmButtonText: 'OK'
+    }).then(() => {
+      // Obrisi korpu
+      orderForm.reset();
+      cart = [];
+      renderCart();
     });
-  }
+  })
+  .catch((error) => {
+    console.error('Greška prilikom slanja narudžbe:', error);
+    Swal.fire({
+      title: 'Greška!',
+      text: 'Došlo je do greške prilikom slanja narudžbe.',
+      icon: 'error',
+      confirmButtonText: 'OK'
+    });
+  });
+  
+}
+
   
   function getCurrentDateTime() {
     const now = new Date();
