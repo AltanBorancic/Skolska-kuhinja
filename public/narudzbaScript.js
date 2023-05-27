@@ -59,13 +59,13 @@ orderForm.addEventListener('submit', (e) => {
     return;
   }
 
-  const razredInput = document.querySelector('#razred');
-  const razred = razredInput.value;
+  const napomenaInput = document.querySelector('#napomena');
+  const napomena = napomenaInput.value;
 
   const order = {
     cart: cart,
     total: calculateTotal(),
-    razred: razred,
+    napomena: napomena,
     vreme_narudzbe: getCurrentDateTime()
   };
 

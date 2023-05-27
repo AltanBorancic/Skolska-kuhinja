@@ -222,8 +222,8 @@ app.post('/order', requireAuthentication2, (req, res) => {
     req.body.razred = req.session.username
     const order = req.body;
   
-    const sql = 'INSERT INTO orders (cart, total, razred, vreme_narudzbe) VALUES (?, ?, ?, ?)';
-    const values = [JSON.stringify(order.cart), order.total, req.session.username, order.vreme_narudzbe];
+    const sql = 'INSERT INTO orders (cart, total, razred, vreme_narudzbe, napomena) VALUES (?, ?, ?, ?, ?)';
+    const values = [JSON.stringify(order.cart), order.total, req.session.username, order.vreme_narudzbe, order.napomena];
   
     db.query(sql, values, (error, results) => {
       if (error) {

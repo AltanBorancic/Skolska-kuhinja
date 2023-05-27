@@ -1,5 +1,5 @@
 const ordersContainer = document.getElementById('orders-container');
-const socket = new WebSocket('ws://192.168.1.102:3000');
+const socket = new WebSocket('ws://localhost:3000');
 
 socket.onmessage = (event) => {
   const order = JSON.parse(event.data);
@@ -15,6 +15,9 @@ socket.onmessage = (event) => {
   const vrijemeNarudzbe = document.createElement('p');
   vrijemeNarudzbe.innerHTML = `<strong>Vrijeme:</strong> ${order.vreme_narudzbe}`;
 
+  const napomena = document.createElement('p');
+  napomena.innerHTML = `<strong>Napomena:</strong> ${order.napomena}`;
+
   const oznaciKaoZavrsenoButton = document.createElement('button');
   oznaciKaoZavrsenoButton.textContent = 'Označi kao završeno';
   oznaciKaoZavrsenoButton.className = 'oznaci-kao-zavrseno-button';
@@ -25,6 +28,7 @@ socket.onmessage = (event) => {
   orderBox.appendChild(orderContent);
   orderBox.appendChild(ukupanIznos);
   orderBox.appendChild(vrijemeNarudzbe);
+  orderBox.appendChild(napomena);
   orderBox.appendChild(oznaciKaoZavrsenoButton);
 
   ordersContainer.appendChild(orderBox);
