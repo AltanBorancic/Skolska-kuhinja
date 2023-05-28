@@ -1,5 +1,5 @@
 const ordersContainer = document.getElementById('orders-container');
-const socket = new WebSocket('ws://skolska-kuhinja.onrender.com');
+const socket = new WebSocket('wss://skolska-kuhinja.onrender.com');
 
 socket.onmessage = (event) => {
   const order = JSON.parse(event.data);
