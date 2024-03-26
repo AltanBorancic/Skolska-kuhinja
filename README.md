@@ -1,6 +1,6 @@
 # Skolska-kuhinja
 
-Ovaj je projekta "Školska Kuhinja" za JU OŠ "Aneks" koji ima za cilj razvoj web aplikacije za narudžbu hrane u školskim kantinama.
+Ovaj projekat "Školska Kuhinja" je za JU OŠ "Aneks" koji ima za cilj razvoj web aplikacije za narudžbu hrane u školskim kantinama.
 
 ## Opis
 
@@ -27,8 +27,5 @@ Ovaj je projekta "Školska Kuhinja" za JU OŠ "Aneks" koji ima za cilj razvoj we
 - Backend je implementiran u Node.js koristeći Express.js framework.
 - Za bazu podataka koristimo MySQL.
 
-## Doprinosi
-
-Ako želite doprinijeti razvoju projekta, slobodno napravite fork i nakon što završite svoje promijene, pošaljite pull request.
 
 
